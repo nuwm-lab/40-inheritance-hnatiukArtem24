@@ -2,7 +2,7 @@ using System;
 
 class Drib
 {
-    protected double a; // коефіцієнт a
+    protected double a; 
 
  
     public virtual void SetCoef()
