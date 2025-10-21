@@ -4,7 +4,7 @@ class Drib
 {
     protected double a; // коефіцієнт a
 
-    // Метод введення коефіцієнта
+ 
     public virtual void SetCoef()
     {
         Console.Write("Введіть коефіцієнт a: ");
@@ -17,7 +17,7 @@ class Drib
         Console.WriteLine($"Коефіцієнт a = {a}");
     }
 
-    // Метод обчислення значення дробу 1/(a*x)
+
     public virtual double Value(double x)
     {
         if (a * x == 0)
