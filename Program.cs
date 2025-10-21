@@ -97,7 +97,7 @@ class Program
 {
     static void Main()
     {
-        Console.WriteLine("=== Клас 'Дріб' ===");
+        Console.WriteLine(" Клас 'Дріб' ");
         Drib d = new Drib();
         d.SetCoef();
         d.ShowCoef();
