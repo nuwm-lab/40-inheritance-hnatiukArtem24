@@ -2,9 +2,9 @@ using System;
 
 class Drib
 {
-    protected double a; // коефіцієнт a
+    protected double a; 
 
-    // Універсальний метод для читання double з перевіркою
+    
     protected double ReadDouble(string prompt, bool mustBeNonZero = false)
     {
         while (true)
@@ -24,19 +24,17 @@ class Drib
         }
     }
 
-    // Метод введення коефіцієнта
     public virtual void SetCoef()
     {
         a = ReadDouble("Введіть коефіцієнт a (необов'язково ≠ 0): ");
     }
 
-    // Метод виведення коефіцієнта
     public virtual void ShowCoef()
     {
         Console.WriteLine($"Коефіцієнт a = {a}");
     }
 
-    // Метод обчислення значення дробу 1/(a*x)
+  
     public virtual double Value(double x)
     {
         if (a * x == 0.0)
@@ -48,31 +46,26 @@ class Drib
     }
 }
 
-// Похідний клас - тривимірний підхідний дріб
 class TrivymirnyDrib : Drib
 {
     protected double a2, a3;
 
-    // Перевизначення методу введення коефіцієнтів
+  
     public override void SetCoef()
     {
         a = ReadDouble("Введіть коефіцієнт a1: ");
         a2 = ReadDouble("Введіть коефіцієнт a2: ");
-        // a3 повинен бути ≠ 0 за умовою
+      
         a3 = ReadDouble("Введіть коефіцієнт a3 (повинен бути ≠ 0): ", mustBeNonZero: true);
     }
 
-    // Перевизначення методу виведення коефіцієнтів
     public override void ShowCoef()
     {
         Console.WriteLine($"a1 = {a}, a2 = {a2}, a3 = {a3}");
     }
 
-    // Перевизначення методу обчислення значення дробу
-    // 1 / (a1*x + 1 / (a2*x + 1 / (a3*x)))
     public override double Value(double x)
     {
-        // Перевірки на можливі ділення на нуль
         if (a3 * x == 0.0)
         {
             Console.WriteLine("Помилка: (a3 * x) = 0 -> ділення на нуль при обчисленні внутрішнього дробу.");
@@ -110,7 +103,7 @@ class Program
         d.ShowCoef();
 
         double x = ReadDoubleStatic("Введіть значення x (не повинно робити a*x = 0 для цього класу): ", allowZero: true);
-        // перевіримо динамічно чи можливо обчислити
+  
         double valD = d.Value(x);
         if (!double.IsNaN(valD))
             Console.WriteLine($"Значення дробу (Drib): {valD}");
@@ -133,7 +126,7 @@ class Program
         Console.ReadLine();
     }
 
-    // доп. статичний метод для зручності Main
+
     static double ReadDoubleStatic(string prompt, bool allowZero = true)
     {
         while (true)
