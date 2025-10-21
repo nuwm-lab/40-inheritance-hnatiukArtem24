@@ -11,7 +11,7 @@ class Drib
         a = Convert.ToDouble(Console.ReadLine());
     }
 
-    // Метод виведення коефіцієнта
+   
     public virtual void ShowCoef()
     {
         Console.WriteLine($"Коефіцієнт a = {a}");
